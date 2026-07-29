@@ -296,5 +296,5 @@ main{ padding-top: 90px; }
 }
 
 @media (max-width: 480px){
-  .gallery{ column-count: 1; }
+  .gallery{ column-count: 2; }
 }
