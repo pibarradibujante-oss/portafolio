@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro Ibarra — Portafolio</title>
+<meta name="description" content="Dibujo, ilustración, tatuajes y diseño gráfico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="site-header">
+  <div class="header-brand">
+    <span class="header-name">PEDRO IBARRA</span>
+  </div>
+  <div class="filters" role="tablist" aria-label="Filtrar por categoría">
+    <button class="filter-btn is-active" data-filter="dibujo">Dibujo</button>
+    <button class="filter-btn" data-filter="ilustración">Ilustración</button>
+    <button class="filter-btn" data-filter="tatuajes">Tatuajes</button>
+    <button class="filter-btn" data-filter="diseno-grafico">Diseño gráfico</button>
+  </div>
+</header>
+
+<main>
+
+  <section id="trabajo" class="work">
+    
+    <div class="gallery" id="gallery">
+      <!-- Las tarjetas se generan desde script.js a partir de PIEZAS -->
+    </div>
+  </section>
+
+ 
+
+</main>
+
+<footer class="site-footer">
+  <a href="mailto:pibarra.dibujante@gmail.com" class="footer-email">pibarra.dibujante@gmail.com</a>
+  <p>© <span id="year"></span> Pedro Ibarra. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Cerrar">✕</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Anterior">‹</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" aria-label="Siguiente">›</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
