@@ -66,15 +66,12 @@ const PIEZAS = [
   { src: "images/tatuajes/Tatuaje_18.webp",        title: "Nombre de la pieza", category: "tatuajes" },
   { src: "images/tatuajes/Tatuaje_19.webp",        title: "Nombre de la pieza", category: "tatuajes" },
   { src: "images/tatuajes/Tatuaje_20.webp",        title: "Nombre de la pieza", category: "tatuajes" },
-  { src: "images/diseno-grafico/pieza-1.jpg",  title: "Nombre de la pieza", category: "diseno-grafico" },
-  { src: "images/diseno-grafico/pieza-2.jpg",  title: "Nombre de la pieza", category: "diseno-grafico" },
 ];
 
 const CATEGORY_LABELS = {
   "dibujo": "Dibujo",
   "ilustración": "Ilustración",
   "tatuajes": "Tatuaje",
-  "diseno-grafico": "Diseño gráfico",
 };
 
 /* ===================================================
@@ -114,32 +111,51 @@ function renderGallery(){
 shuffle(PIEZAS);
 renderGallery();
 
-// Filtro inicial: mostrar solo "dibujo" al cargar la página
-document.querySelectorAll(".piece").forEach(card => {
-  if (card.dataset.category !== "dibujo") card.classList.add("is-hidden");
-});
-
 /* ===================================================
-   3. FILTROS
+   3. SECCIONES Y FILTROS
+   -----------------------------------------------------
+   "sobre-mi" es su propia sección (no filtra la galería).
+   El resto de los botones muestran la galería filtrada
+   por categoría.
 =================================================== */
+const aboutSection = document.getElementById("sobre-mi");
+const workSection = document.getElementById("trabajo");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
-filterButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    filterButtons.forEach(b => b.classList.remove("is-active"));
-    btn.classList.add("is-active");
+function activateSection(filter, { scroll = true } = {}){
+  filterButtons.forEach(b => b.classList.toggle("is-active", b.dataset.filter === filter));
 
-    const filter = btn.dataset.filter;
-    document.querySelectorAll(".piece").forEach(card => {
-      const match = filter === "todo" || card.dataset.category === filter;
-      card.classList.toggle("is-hidden", !match);
-    });
-     // Sube hasta el inicio de la galería (dejando espacio para el header fijo)
+  if (filter === "sobre-mi") {
+    workSection.classList.add("is-hidden");
+    aboutSection.classList.remove("is-hidden");
+    if (scroll) window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  aboutSection.classList.add("is-hidden");
+  workSection.classList.remove("is-hidden");
+
+  document.querySelectorAll(".piece").forEach(card => {
+    const match = filter === "todo" || card.dataset.category === filter;
+    card.classList.toggle("is-hidden", !match);
+  });
+
+  if (scroll) {
+    // Sube hasta el inicio de la galería (dejando espacio para el header fijo)
     const headerHeight = document.querySelector(".site-header").offsetHeight;
     const galleryTop = gallery.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
     window.scrollTo({ top: galleryTop, behavior: "smooth" });
-  });
+  }
+}
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => activateSection(btn.dataset.filter));
 });
+
+document.getElementById("brand-home").addEventListener("click", () => activateSection("sobre-mi"));
+
+// Estado inicial: "Sobre mí" como página principal
+activateSection("sobre-mi", { scroll: false });
  
 /* ===================================================
    4. LIGHTBOX
@@ -207,6 +223,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 /* ===================================================
-   5. AÑO EN EL FOOTER
+   6. AÑO EN EL FOOTER
 =================================================== */
 document.getElementById("year").textContent = new Date().getFullYear();

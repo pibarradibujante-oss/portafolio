@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pedro Ibarra — Portafolio</title>
-<meta name="description" content="Dibujo, ilustración, tatuajes y diseño gráfico.">
+<meta name="description" content="Dibujo, ilustración y tatuajes. Portafolio de Pedro Ibarra, artista visual.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -16,19 +16,73 @@
 
 <header class="site-header">
   <div class="header-brand">
-    <span class="header-name">PEDRO IBARRA</span>
+    <button type="button" class="header-name" id="brand-home">PEDRO IBARRA</button>
   </div>
   <div class="filters" role="tablist" aria-label="Filtrar por categoría">
-    <button class="filter-btn is-active" data-filter="dibujo">Dibujo</button>
+    <button class="filter-btn is-active" data-filter="sobre-mi">Sobre mí</button>
+    <button class="filter-btn" data-filter="dibujo">Dibujo</button>
     <button class="filter-btn" data-filter="ilustración">Ilustración</button>
     <button class="filter-btn" data-filter="tatuajes">Tatuajes</button>
-    <button class="filter-btn" data-filter="diseno-grafico">Diseño gráfico</button>
   </div>
 </header>
 
 <main>
 
-  <section id="trabajo" class="work">
+  <section id="sobre-mi" class="about">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/perfil/Foto_Perfil.webp" alt="Retrato de Pedro Ibarra">
+      </div>
+      <div class="about-text">
+        <span class="about-eyebrow">Acerca de mí</span>
+        <p>Mi trabajo como Artista Visual se centra en el diálogo entre los medios tradicionales y las herramientas digitales.</p>
+        <p>Las prácticas del dibujo, la ilustración, el tatuaje y el diseño gráfico se han relacionado en mi proceso creativo para encontrar mis propias formas de expresión visual.</p>
+      </div>
+    </div>
+
+    <div class="expo-block">
+      <div class="expo-info">
+        <span class="about-eyebrow">Exposición</span>
+        <h3 class="expo-title">El dibujo como práctica de memoria</h3>
+        <p class="expo-date">2023 — Casa de la Cultura de Soacha</p>
+        <p class="expo-desc">Serie de ocho retratos de mi padre, resultado de mi proyecto de grado sobre el dibujo como herramienta para registrar y transmitir la memoria personal y familiar. <br> <br> A través del grafito y el dibujo digital, cada pieza explora un gesto distinto de su cotidianidad, buscando capturar no solo su imagen, sino también su historia.</p>
+      </div>
+
+      <div class="expo-marquee">
+        <div class="expo-track">
+          <img src="images/Exposición/Exposición_1.jpg" alt="Exposición El dibujo como práctica de memoria, vista general de los retratos en caballetes">
+          <img src="images/Exposición/Exposición_2.jpg" alt="Retrato exhibido en caballete durante la muestra">
+          <img src="images/Exposición/Exposición_3.jpg" alt="Visitante observando los retratos durante la exposición">
+          <img src="images/Exposición/Exposición_4.jpg" alt="Público recorriendo la exposición">
+          <img src="images/Exposición/Exposición_5.jpg" alt="Visitantes frente a la serie de retratos">
+          <img src="images/Exposición/Exposición_6.jpg" alt="Visitante observando uno de los retratos expuestos">
+          <img src="images/Exposición/Exposición_7.jpg" alt="Recorrido del público por la sala de exposición">
+          <img src="images/Exposición/Exposición_8.jpg" alt="Grupo de visitantes conversando frente a los retratos">
+          <img src="images/Exposición/Exposición_9.jpg" alt="Público reunido frente a la serie de retratos">
+          <img src="images/Exposición/Exposición_10.jpg" alt="Visitantes recorriendo la exposición">
+          <img src="images/Exposición/Exposición_11.jpg" alt="Grupo observando los retratos expuestos">
+          <img src="images/Exposición/Exposición_12.jpg" alt="Artista explicando su obra a los asistentes">
+          <img src="images/Exposición/Exposición_13.jpg" alt="Visitantes sentados observando la exposición">
+          <!-- Se repiten para que la cinta se vea continua -->
+          <img src="images/Exposición/Exposición_1.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_2.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_3.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_4.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_5.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_6.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_7.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_8.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_9.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_10.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_11.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_12.jpg" alt="" aria-hidden="true">
+          <img src="images/Exposición/Exposición_13.jpg" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trabajo" class="work is-hidden">
     
     <div class="gallery" id="gallery">
       <!-- Las tarjetas se generan desde script.js a partir de PIEZAS -->
