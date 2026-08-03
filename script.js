@@ -47,6 +47,7 @@ const PIEZAS = [
   { src: "images/ilustraciones/Ilustracion_12.webp",  title: "Nombre de la pieza", category: "ilustración" },
   { src: "images/ilustraciones/Ilustracion_13.webp", title: "Nombre de la pieza", category: "ilustración" },
   { src: "images/ilustraciones/Ilustracion_14.webp", title: "Nombre de la pieza", category: "ilustración" },
+  { src: "images/ilustraciones/Ilustracion_15.webp", title: "Nombre de la pieza", category: "ilustración" },
   { src: "images/tatuajes/Tatuaje_1.webp",        title: "Nombre de la pieza", category: "tatuajes" },
   { src: "images/tatuajes/Tatuaje_3.webp",        title: "Nombre de la pieza", category: "tatuajes" },
   { src: "images/tatuajes/Tatuaje_4.webp",        title: "Nombre de la pieza", category: "tatuajes" },
