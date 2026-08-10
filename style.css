@@ -128,35 +128,35 @@ main{ padding-top: 90px; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 40px clamp(20px, 5vw, 64px);
-  background: var(--paper);
-  border-bottom: 1px solid rgba(28,28,28,0.08);
+  background: var(--ink);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(2px);
 }
 .header-brand{ display: flex; flex-direction: column; gap: 2px; }
 .header-name{
   font-family: var(--display); font-size: 40px; letter-spacing: 0.03em;
-  color: var(--ink); line-height: 1;
+  color: var(--paper); line-height: 1;
   background: none; border: none; padding: 0; margin: 0;
   cursor: pointer; text-align: left;
   transition: color 0.2s ease;
 }
-.header-name:hover{ color: var(--gold-dark); }
+.header-name:hover{ color: var(--gold); }
 .header-tag{
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
-  color: var(--gold-dark);
+  color: var(--gold);
 }
 .filters{
   display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px;
 }
 .filter-btn{
   font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
-  background: none; border: 1px solid rgba(28,28,28,0.16); color: var(--paper-dim);
+  background: none; border: 1px solid rgba(255,255,255,0.22); color: rgba(247,246,243,0.7);
   padding: 9px 18px; border-radius: 999px; cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
-.filter-btn:hover{ border-color: var(--ink); color: var(--ink); }
+.filter-btn:hover{ border-color: var(--paper); color: var(--paper); }
 .filter-btn.is-active{
-  background: var(--ink); border-color: var(--ink); color: var(--paper);
+  background: var(--paper); border-color: var(--paper); color: var(--ink);
 }
 
 .gallery{
