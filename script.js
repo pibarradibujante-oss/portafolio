@@ -33,6 +33,8 @@ const PIEZAS = [
   { src: "images/dibujos/Dibujo_13.webp",  title: "Nombre de la pieza", category: "dibujo" },
   { src: "images/dibujos/Dibujo_14.webp",  title: "Nombre de la pieza", category: "dibujo" },
   { src: "images/dibujos/Dibujo_15.webp",  title: "Nombre de la pieza", category: "dibujo" },
+  { src: "images/dibujos/Dibujo_16.webp",  title: "Nombre de la pieza", category: "dibujo" },
+  { src: "images/dibujos/Dibujo_17.webp",  title: "Nombre de la pieza", category: "dibujo" },
   { src: "images/ilustraciones/Ilustracion_1.webp",  title: "Nombre de la pieza", category: "ilustración" },
   { src: "images/ilustraciones/Ilustracion_2.webp",  title: "Nombre de la pieza", category: "ilustración" },
   { src: "images/ilustraciones/Ilustracion_3.webp",  title: "Nombre de la pieza", category: "ilustración" },
