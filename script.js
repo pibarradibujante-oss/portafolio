@@ -69,6 +69,7 @@ const PIEZAS = [
   { src: "images/tatuajes/Tatuaje_18.webp",        title: "Nombre de la pieza", category: "tatuajes" },
   { src: "images/tatuajes/Tatuaje_19.webp",        title: "Nombre de la pieza", category: "tatuajes" },
   { src: "images/tatuajes/Tatuaje_20.webp",        title: "Nombre de la pieza", category: "tatuajes" },
+  { src: "images/tatuajes/Tatuaje_21.webp",        title: "Nombre de la pieza", category: "tatuajes" },
 ];
 
 const CATEGORY_LABELS = {
