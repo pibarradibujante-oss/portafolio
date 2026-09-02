@@ -4,6 +4,25 @@ if ("scrollRestoration" in history) {
 window.scrollTo(0, 0);
 
 /* ===================================================
+   0. EVITAR PALABRAS HUÉRFANAS
+   -----------------------------------------------------
+   Une las dos últimas palabras de cada párrafo con un
+   espacio que no se corta, para que nunca quede una sola
+   palabra sola en la última línea. Funciona en cualquier
+   navegador (no depende de soporte para text-wrap: pretty).
+=================================================== */
+function evitarHuerfanas(selector){
+  document.querySelectorAll(selector).forEach(el => {
+    const texto = el.textContent.trim();
+    const palabras = texto.split(/\s+/);
+    if (palabras.length < 2) return;
+    const ultima = palabras.pop();
+    el.textContent = palabras.join(" ") + "\u00A0" + ultima;
+  });
+}
+evitarHuerfanas(".about-text p, .expo-desc, .about-simple, .hero-sub");
+
+/* ===================================================
    1. TUS PIEZAS
    ...
 /* ===================================================
@@ -49,7 +68,6 @@ const PIEZAS = [
   { src: "images/ilustraciones/Ilustracion_12.webp",  title: "Nombre de la pieza", category: "ilustración" },
   { src: "images/ilustraciones/Ilustracion_13.webp", title: "Nombre de la pieza", category: "ilustración" },
   { src: "images/ilustraciones/Ilustracion_14.webp", title: "Nombre de la pieza", category: "ilustración" },
-  { src: "images/ilustraciones/Ilustracion_15.webp", title: "Nombre de la pieza", category: "ilustración" },
   { src: "images/tatuajes/Tatuaje_1.webp",        title: "Nombre de la pieza", category: "tatuajes" },
   { src: "images/tatuajes/Tatuaje_3.webp",        title: "Nombre de la pieza", category: "tatuajes" },
   { src: "images/tatuajes/Tatuaje_4.webp",        title: "Nombre de la pieza", category: "tatuajes" },
