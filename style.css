@@ -15,9 +15,9 @@
   --gold-dark:  #4d4a42;   /* gris cálido oscuro — kickers, enlaces, texto sobre claro */
   --edge:       1px solid rgba(28,28,28,0.1);
 
-  --display: "Bebas Neue", sans-serif;
-  --body:    "Work Sans", sans-serif;
-  --mono:    "JetBrains Mono", monospace;
+  --display: "Syne", sans-serif;
+--body:    "Archivo", sans-serif;
+--mono:    "Archivo", sans-serif;
   --container: 1180px;
 }
 
@@ -369,3 +369,14 @@ main{ padding-top: 150px; }
 @media (max-width: 480px){
   .gallery{ column-count: 2; }
 }
+
+/* ===================================================
+   TRAZO DE LÁPIZ (cursor)
+=================================================== */
+.pencil-trail{
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;   /* no bloquea clics */
+  z-index: 0;
+}
+main, .site-footer{ position: relative; z-index: 1; }

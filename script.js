@@ -249,3 +249,80 @@ document.addEventListener("keydown", (e) => {
    6. AÑO EN EL FOOTER
 =================================================== */
 document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ===================================================
+   7. TRAZO DE LÁPIZ QUE SIGUE AL CURSOR
+   -----------------------------------------------------
+   Ajusta estos valores para experimentar:
+   VIDA       → cuánto dura el trazo antes de borrarse (ms)
+   DISPERSION → grosor del trazo
+   OPACIDAD   → qué tan oscuro es el grafito (0 a 1)
+=================================================== */
+(function trazoLapiz(){
+  const canvas = document.querySelector(".pencil-trail");
+  if (!canvas) return;
+  // Solo en computador con mouse y si la persona no pidió reducir animaciones
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!matchMedia("(pointer: fine)").matches) return;
+
+  const VIDA = 1000;
+  const DISPERSION = 1.2;
+  const OPACIDAD = 0.35;
+  const COLOR = "#1c1c1c";   // mismo tono que --ink
+
+  const ctx = canvas.getContext("2d");
+  let granos = [];
+  let anterior = null;
+
+  function ajustarTamano(){
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = innerWidth * dpr;
+    canvas.height = innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  ajustarTamano();
+  addEventListener("resize", ajustarTamano);
+
+  addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    const p = { x: e.clientX, y: e.clientY };
+    const ahora = performance.now();
+
+    if (anterior){
+      const dx = p.x - anterior.x, dy = p.y - anterior.y;
+      const dist = Math.hypot(dx, dy);
+      // Como un lápiz real: movimiento rápido = trazo más fino y claro
+      const presion = Math.max(0.35, 1 - dist / 120);
+      const pasos = Math.max(1, Math.ceil(dist * 1.5));
+
+      for (let i = 0; i < pasos; i++){
+        const x = anterior.x + dx * i / pasos;
+        const y = anterior.y + dy * i / pasos;
+        for (let j = 0; j < 2; j++){
+          granos.push({
+            x: x + (Math.random() - 0.5) * DISPERSION * 2 * presion,
+            y: y + (Math.random() - 0.5) * DISPERSION * 2 * presion,
+            a: Math.random() * OPACIDAD * presion,
+            t: ahora
+          });
+        }
+      }
+    }
+    anterior = p;
+  });
+  document.documentElement.addEventListener("mouseleave", () => anterior = null);
+
+  function dibujar(){
+    const ahora = performance.now();
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    granos = granos.filter(g => ahora - g.t < VIDA);
+    ctx.fillStyle = COLOR;
+    for (const g of granos){
+      ctx.globalAlpha = g.a * (1 - (ahora - g.t) / VIDA);
+      ctx.fillRect(g.x, g.y, 1, 1);
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(dibujar);
+  }
+  requestAnimationFrame(dibujar);
+})();
